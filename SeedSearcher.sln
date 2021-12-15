@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedSearcher", "SeedSearcher\SeedSearcher.csproj", "{F71A8B48-F4E7-47B8-80DD-726E370A157B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedSearcher", "SeedSearcher\SeedSearcher.csproj", "{F71A8B48-F4E7-47B8-80DD-726E370A157B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SeedSearcherFrontend", "SeedSearcherFrontend\", "{5A5A199D-3B81-45E3-ACEE-B7FC3E51B774}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49967"
+		Debug.AspNetCompiler.PhysicalPath = "SeedSearcherFrontend\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49967\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49967"
+		Release.AspNetCompiler.PhysicalPath = "SeedSearcherFrontend\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49967\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49967"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +35,10 @@ Global
 		{F71A8B48-F4E7-47B8-80DD-726E370A157B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F71A8B48-F4E7-47B8-80DD-726E370A157B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F71A8B48-F4E7-47B8-80DD-726E370A157B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5A199D-3B81-45E3-ACEE-B7FC3E51B774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5A199D-3B81-45E3-ACEE-B7FC3E51B774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5A199D-3B81-45E3-ACEE-B7FC3E51B774}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5A199D-3B81-45E3-ACEE-B7FC3E51B774}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
