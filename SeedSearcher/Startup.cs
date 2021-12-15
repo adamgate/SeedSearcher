@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SeedSearcher.Data;
 
 namespace SeedSearcher
 {
@@ -27,6 +29,9 @@ namespace SeedSearcher
         {
 
             services.AddControllers();
+
+            services.AddDbContext<SeedSearcherContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SeedSearcherContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
