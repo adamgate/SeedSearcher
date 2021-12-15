@@ -4,7 +4,7 @@
   "DataSource": {
     "Type": "Folder",
     "Version": 1,
-    "FolderPath": "D:\\Programming\\Projects\\SeedSearcher\\datasets\\birds-325\\train"
+    "FolderPath": "D:\\Programming\\Projects\\soon to be deleted\\datasets\\birds-325\\train"
   },
   "Environment": {
     "Type": "LocalCPU",

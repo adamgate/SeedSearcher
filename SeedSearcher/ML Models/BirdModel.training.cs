@@ -8,7 +8,7 @@ using Microsoft.ML.Data;
 using Microsoft.ML.Vision;
 using Microsoft.ML;
 
-namespace SeedSearcher
+namespace SeedSearcher.ML_Models
 {
     public partial class BirdModel
     {

@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Bird } from './bird.model';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class BirdService {
   public birds: Bird[];
   public bird: Bird;
 
-  public url: string = "https://localhost:44314/api/birds";
+  public url: string = "https://localhost:44370/api/birds";
 
   constructor(private http: HttpClient) {
   }
@@ -35,10 +36,24 @@ export class BirdService {
   }
 
   //Send an image to the ML model for identification
-  identifyBird(selectedFile: any) {
+  imageUpload(selectedFile: any) {
+    const formData = new FormData();
+    formData.append('image', selectedFile, selectedFile.name)
 
+    this.http.post(this.url, formData, {
+      reportProgress: true,
+      observe: 'events'
+    }).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+        }
+        else if (event.type === HttpEventType.Response)
+          console.log(event);
+      });
   }
 
+  identifyBird() {
 
-
+  }
 }

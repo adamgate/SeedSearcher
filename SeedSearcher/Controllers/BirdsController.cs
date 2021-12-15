@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SeedSearcher.Data;
 using SeedSearcher.Models;
+using SeedSearcher.ML_Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace SeedSearcher.Controllers
 {
@@ -15,15 +19,17 @@ namespace SeedSearcher.Controllers
     public class BirdsController : ControllerBase
     {
         private readonly SeedSearcherContext _context;
+        private IWebHostEnvironment _hostingEnvironment;
 
-        public BirdsController(SeedSearcherContext context)
+        public BirdsController(SeedSearcherContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostEnvironment;
         }
 
         // GET: api/Birds
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Bird>>> GetBird()
+        public async Task<ActionResult<IEnumerable<Bird>>> GetBirds()
         {
             return await _context.Bird.ToListAsync();
         }
@@ -42,67 +48,12 @@ namespace SeedSearcher.Controllers
             return bird;
         }
 
-        // PUT: api/Birds/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBird(int id, Bird bird)
-        {
-            if (id != bird.BirdId)
-            {
-                return BadRequest();
-            }
+        //[HttpPost, DisableRequestSizeLimit]
+        //public ObjectResult ImageUpload()
+        //{
 
-            _context.Entry(bird).State = EntityState.Modified;
+        //}
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BirdExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Birds
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Bird>> PostBird(Bird bird)
-        {
-            _context.Bird.Add(bird);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetBird", new { id = bird.BirdId }, bird);
-        }
-
-        // DELETE: api/Birds/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBird(int id)
-        {
-            var bird = await _context.Bird.FindAsync(id);
-            if (bird == null)
-            {
-                return NotFound();
-            }
-
-            _context.Bird.Remove(bird);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool BirdExists(int id)
-        {
-            return _context.Bird.Any(e => e.BirdId == id);
-        }
+       
     }
 }

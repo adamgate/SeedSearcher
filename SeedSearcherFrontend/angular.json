@@ -75,7 +75,8 @@
               "browserTarget": "seed-searcher-frontend:build:production"
             },
             "development": {
-              "browserTarget": "seed-searcher-frontend:build:development"
+              "browserTarget": "seed-searcher-frontend:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

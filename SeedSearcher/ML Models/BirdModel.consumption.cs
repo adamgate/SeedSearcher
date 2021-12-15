@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace SeedSearcherBackend
+namespace SeedSearcher.ML_Models
 {
     public partial class BirdModel
     {

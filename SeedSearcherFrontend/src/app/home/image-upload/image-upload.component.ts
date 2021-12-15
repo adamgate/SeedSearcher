@@ -7,7 +7,7 @@ import { BirdService } from 'src/app/shared/bird.service';
   styleUrls: ['./image-upload.component.css']
 })
 export class ImageUploadComponent implements OnInit {
-  selectedFile = null;
+  selectedFile: File = null;
 
   constructor(private birdService: BirdService) { }
 
@@ -22,6 +22,9 @@ export class ImageUploadComponent implements OnInit {
   }
 
   onUpload() {
-    this.birdService.identifyBird(this.selectedFile);
+    if (this.onFileSelected.length === 0)
+      return;
+    
+    this.birdService.imageUpload(<File>this.selectedFile);
   }
 }
